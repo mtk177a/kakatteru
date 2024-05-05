@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'hearts/new'
+  get 'hearts/create'
   get 'answers/new'
   get 'answers/create'
   get 'questions/new'
