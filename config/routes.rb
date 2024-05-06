@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :posts, only: [:new, :create, :index]
-
+  resources :nazokakes, only: [:index]
   resources :questions, only: [:new, :create]
   resources :answers, only: [:new, :create]
   resources :hearts, only: [:new, :create]
