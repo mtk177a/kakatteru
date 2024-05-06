@@ -40,10 +40,19 @@
       <% end %>
 
       <div class="actions">
-        <%= link_to 'ランダム生成', nazokakes_path, class: "m-5 btn btn-primary w-1/4" %>
+        <%= link_to 'ランダム生成', nazokakes_path, class: "m-5 btn btn-primary btn-wide" %>
+      </div>
+
+    <div class="m-3 flex text-center justify-center">
+      <div class="actions">
+        <%= link_to "Twitterで共有する", "https://twitter.com/intent/tweet?text=#{@encoded_text}", target: "_blank", class: "m-2 btn btn-outline btn-info btn-wide" %>
+      </div>
+
+      <div class="actions">
+        <%= link_to '投稿してみる', new_post_path, class: "m-2 btn btn-outline btn-secondary btn-wide" %>
       </div>
     </div>
-
+    </div>
   </div>
 
 </div>
