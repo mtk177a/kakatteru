@@ -1,0 +1,43 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h1 class="my-1 text-center text-2xl font-bold leading-9 text-gray-900">投稿一覧</h1>
+  </div>
+
+  <ul>
+    <% @posts.each do |post| %>
+      <div class="my-3 card w-full bg-base-100 shadow-xl">
+        <div class="card-body">
+          <li class="flex items-center">
+            <div class="card-title mx-5 my-1 text-violet-400">
+              <%= translate_class_name(post.class.name) %>
+            </div>
+
+            <% if post.class.name == "Heart" %>
+              <div class="mr-3 my-1 text-gray-400">
+                その心は
+              </div>
+            <% end %>
+
+            <div class="mr-3 my-1">
+              <%= post.content %>
+            </div>
+            <div class="text-gray-400">
+              <%= case post.class.name
+                  when "Question"
+                    "とかけて"
+                  when "Answer"
+                    "と解く"
+                  when "Heart"
+                    "でしょう"
+                  else
+                    "不明なコンテンツです。"
+                  end %>
+            </div>
+          </li>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+
+</div>
