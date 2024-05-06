@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.new(answer_params)
     if @answer.save
-      redirect_to answers_path, success: 'Answer was successfully created.'
+      redirect_to posts_path, success: 'Answer was successfully created.'
     else
       render :new
     end
