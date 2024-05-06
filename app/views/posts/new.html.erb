@@ -1,0 +1,28 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h1 class="my-10 text-center text-2xl font-bold leading-9 text-gray-900">新規投稿</h1>
+  </div>
+
+<div role="tablist" class="mt-3 tabs tabs-boxed tabs-lg">
+  <!-- Question Tab -->
+  <input type="radio" id="question_tab" name="post_tabs" role="tab" class="tab" aria-controls="question_content" aria-label="問" checked />
+
+  <div role="tabpanel" id="question_content" class="tab-content p-10">
+    <%= render 'questions/form', question: @question %>
+  </div>
+
+  <!-- Answer Tab -->
+  <input type="radio" id="answer_tab" name="post_tabs" role="tab" class="tab" aria-controls="answer_content" aria-label="解" />
+  <div role="tabpanel" id="answer_content" class="tab-content p-10">
+    <%= render 'answers/form', answer: @answer %>
+  </div>
+
+  <!-- Heart Tab -->
+  <input type="radio" id="heart_tab" name="post_tabs" role="tab" class="tab" aria-controls="heart_content" aria-label="心" />
+  <div role="tabpanel" id="heart_content" class="tab-content p-10">
+    <%= render 'hearts/form', heart: @heart %>
+  </div>
+</div>
+
+</div>

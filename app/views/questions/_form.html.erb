@@ -1,0 +1,21 @@
+<%= form_with(model: question, local: true) do |form| %>
+  <% if question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(question.errors.count, "error") %>prohibited this question from being saved:</h2>
+      <ul>
+        <% question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_area :content, class: "my-3 textarea textarea-bordered flex w-full items-center gap-2" %>
+    <p>とかけて</p>
+  </div>
+
+  <div class="mt-10 btn btn-primary flex w-full justify-center rounded-md">
+    <%= form.submit "問を投稿" %>
+  </div>
+<% end %>
