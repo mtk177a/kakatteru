@@ -2,9 +2,11 @@
     <%= render @user %>
   </div>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
-</div>
+  <div class="flex mt-3 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="mr-3 btn btn-outline btn-primary flex-auto w-full justify-center rounded-md">
+      <%= link_to "ユーザー編集", edit_user_path(@user) %>
+    </div>
+    <div class="ml-3 btn btn-outline btn-primary flex-auto w-full justify-center rounded-md">
+      <%= link_to "ユーザー一覧", users_path %>
+    </div>
+  </div>

@@ -1,6 +1,12 @@
 <div id="<%= dom_id user %>">
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
+  <p class="my-3 flex items-center gap-2">
+    <div class="my-3 flex items-center gap-2">
+      <strong>ユーザー名</strong>
+      <%= user.name %>
+    </div>
+    <div class="my-3 flex items-center gap-2">
+      <strong>メールアドレス</strong>
+      <%= user.email %>
+    </div>
   </p>
 </div>

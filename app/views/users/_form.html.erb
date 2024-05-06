@@ -14,6 +14,11 @@
   <% end %>
 
   <div>
+    <%= form.label :name, "ユーザー名", style: "display: block", class: "my-3 flex items-center gap-2" %>
+    <%= form.text_field :name, class: "my-3 input input-bordered flex w-full items-center gap-2" %>
+  </div>
+
+  <div>
     <%= form.label :email, "メールアドレス", style: "display: block", class: "my-3 flex items-center gap-2" %>
     <%= form.text_field :email, class: "my-3 input input-bordered flex w-full items-center gap-2" %>
   </div>
