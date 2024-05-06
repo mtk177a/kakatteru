@@ -1,6 +1,6 @@
 <div class="navbar bg-base-100">
   <div class="flex-1">
-    <%= link_to "かかってる？", posts_path, class: "btn btn-ghost text-xl" %>
+    <%= link_to "かかってる？", root_path, class: "btn btn-ghost text-xl" %>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal px-1">
@@ -11,7 +11,7 @@
         <%= link_to "投稿一覧", posts_path %>
       </li>
       <li>
-        <%= link_to "プロフィール編集", edit_user_path(current_user.id) %>
+        <%= link_to current_user.name, edit_user_path(current_user.id) %>
       </li>
       <li>
         <%= link_to "ログアウト", logout_path, data: { turbo_method: :delete } %>

@@ -6,7 +6,7 @@ class HeartsController < ApplicationController
   def create
     @heart = current_user.hearts.new(heart_params)
     if @heart.save
-      redirect_to hearts_path, success: 'Heart was successfully created.'
+      redirect_to posts_path, success: 'Heart was successfully created.'
     else
       render :new
     end

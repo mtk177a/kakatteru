@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   skip_before_action :require_login, only: [:index, :new, :create] # this should only be used if you are allowing users to register themselves.
+  before_action :check_user, only: %i[edit update destroy]
 
   # GET /users or /users.json
   def index
@@ -26,7 +27,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: "User was successfully created." }
+        auto_login(@user)
+        format.html { redirect_to posts_path, notice: "User was successfully created." }
         format.json { render :index, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -62,6 +64,10 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def check_user
+      redirect_to(root_url, alert: "Unauthorized access!") unless @user == current_user
     end
 
     # Only allow a list of trusted parameters through.
