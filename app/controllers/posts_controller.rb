@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  skip_before_action :require_login, only: [:index]
+
   def index
     @questions = Question.all
     @answers = Answer.all
