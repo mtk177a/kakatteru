@@ -3,18 +3,18 @@ class PostsController < ApplicationController
     @questions = Question.all
     @answers = Answer.all
     @hearts = Heart.all
-    @posts = (@questions + @answers + @hearts).sort_by(&:created_at)
+    @posts = (@questions + @answers + @hearts).sort_by(&:created_at).reverse!
   end
 
   def new
-    @question = Question.new
-    @answer = Answer.new
-    @heart = Heart.new
+    @question = current_user.questions.build
+    @answer = current_user.answers.build
+    @heart = current_user.hearts.build
   end
 
   def create
     model_class = [Question, Answer, Heart].find { |m| params.key?(m.name.underscore) }
-    @post = model_class.new(post_params(model_class))
+    @post = current_user.send(model_class.name.underscore.pluralize).new(post_params(model_class))
 
     if @post.save
       redirect_to posts_path, notice: "#{model_class.name} was successfully created."
