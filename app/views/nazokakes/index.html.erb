@@ -1,0 +1,49 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h1 class="my-1 text-center text-2xl font-bold leading-9 text-gray-900">ランダムなぞかけ</h1>
+  </div>
+
+  <div class="my-3 card w-full bg-base-100 shadow-xl">
+
+    <div class="m-10 text-center justify-center">
+      <% if @question && @answer && @heart %>
+        <div class="m-3 flex text-center justify-center">
+          <div class="m-3">
+            <strong><%= @question.content %></strong>
+          </div>
+          <div class="m-3 text-gray-400">
+            とかけて
+          </div>
+        </div>
+
+        <div class="m-3 flex text-center justify-center">
+          <div class="m-3">
+            <strong><%= @answer.content %></strong>
+          </div>
+          <div class="m-3 text-gray-400">
+            と解く
+          </div>
+        </div>
+
+        <div class="m-3 flex text-center justify-center">
+          <div class="m-3 text-gray-400">
+            その心は、どちらも
+          </div>
+          <div class="m-3">
+            <strong><%= @heart.content %></strong>
+          </div>
+        </div>
+
+      <% else %>
+        <p>なぞかけの要素が足りません。</p>
+      <% end %>
+
+      <div class="actions">
+        <%= link_to 'ランダム生成', nazokakes_path, class: "m-5 btn btn-primary w-1/4" %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
